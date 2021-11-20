@@ -1,0 +1,30 @@
+<div class="container">
+    <h2> Ajout d'un employé</h2>
+    <form>
+        <div>
+            <label> Donnez le matricule</label>
+            <input type="number" class="form-control">
+        </div>
+
+        <div>
+            <label> Donnez le nom</label>
+            <input type="text" class="form-control">
+        </div>
+
+        <div>
+            <label> Donnez la fonction</label>
+            <select class="form-select">
+                <option [value]="f" *ngFor="let f of fonctions">{{f}}</option>
+            </select>
+        </div>
+
+        <div>
+            <label> Choisissez le département</label>
+            <input type="radio" name="dep" value="IT"> IT
+            <input type="radio" name="dep" value="Finance"> Finance
+        </div>
+
+        <button class="btn btn-primary">Ajouter Employé</button>
+        <input type="button" class="btn btn-secondary" value="Vider">
+    </form>
+</div>

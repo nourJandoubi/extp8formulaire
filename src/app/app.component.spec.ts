@@ -16,16 +16,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'TP8EX'`, () => {
+  it(`should have as title 'TP7EX'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('TP8EX');
+    expect(app.title).toEqual('TP7EX');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('TP8EX app is running!');
+    expect(compiled.querySelector('.content span')?.textContent).toContain('TP7EX app is running!');
   });
 });
