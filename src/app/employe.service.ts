@@ -15,6 +15,11 @@ export class EmployeService {
   }
 
   addNewEmploye(emp: Employe) {   
+    {
+      let a=Object.assign({},emp);
+      this.lesEmployes.push(a);
+      return true;
+       }
   }
   constructor() { }
 }

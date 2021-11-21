@@ -1,30 +1,45 @@
 <div class="container">
     <h2> Ajout d'un employé</h2>
-    <form>
+    <form [formGroup]="employeForm" (ngSubmit)="onSubmit()">
         <div>
             <label> Donnez le matricule</label>
-            <input type="number" class="form-control">
+            <input type="number" class="form-control" name="matricule"  formControlName="matricule">
         </div>
+        
 
+        <div *ngIf="matricule.invalid && matricule.touched" class="alert alert-danger">
+            le matricule est obligatoire
+            </div>
+        <div *ngIf="matricule.errors?.pattern && matricule?.dirty && matricule?.touched" class="alert alert-warning">
+        Le matricule de l’employé est obligatoire et doit comporter 3 chiffres autres que 0
+        </div >
+
+       
+   
         <div>
             <label> Donnez le nom</label>
-            <input type="text" class="form-control">
+            <input type="text" class="form-control" name="nom"  formControlName="nom">
         </div>
-
+        <div *ngIf="nom.invalid && nom.touched" class="alert alert-danger">
+        le nom est obligatoire
+    </div>
+    <div *ngIf="nom.errors?.pattern && nom?.dirty && nom?.touched" class="alert alert-warning">
+        le nom  doit comporter au moins 2 mots séparés par un espace où
+        chaque mot doit commencer par une majuscule suivie d’une ou de plusieurs minuscules,
+        </div >
         <div>
             <label> Donnez la fonction</label>
-            <select class="form-select">
+            <select class="form-select"  formControlName="fonction">
                 <option [value]="f" *ngFor="let f of fonctions">{{f}}</option>
             </select>
         </div>
 
         <div>
             <label> Choisissez le département</label>
-            <input type="radio" name="dep" value="IT"> IT
-            <input type="radio" name="dep" value="Finance"> Finance
+            <input type="radio" name="dep" value="IT"  formControlName="dep"> IT
+            <input type="radio" name="dep" value="Finance"  formControlName="dep"> Finance
         </div>
 
         <button class="btn btn-primary">Ajouter Employé</button>
-        <input type="button" class="btn btn-secondary" value="Vider">
+        <input type="button" class="btn btn-secondary" value="Vider" (Click)="reset()" >
     </form>
-</div>
